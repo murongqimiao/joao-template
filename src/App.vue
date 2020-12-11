@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <div class="init-contain" v-if="checkRoute()">
-      <div class="title">JOAO!</div>
-      <div>U have built a FE-backend management system successfully!</div>
+    <div id="root">
+    <Layout>
+      <router-view />
+    </Layout>
     </div>
-
-    <router-view/>
   </div>
 </template>
 
 <script>
 import User from 'model/User'
+import Layout from "./components/Layout/Layout"
 
 export default {
   name: 'App',
@@ -24,6 +24,9 @@ export default {
     checkRoute () {
       return this.$route.path.length < 2
     }
+  },
+  components: {
+    Layout
   }
 }
 </script>

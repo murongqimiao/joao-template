@@ -62,11 +62,11 @@ module.exports = {
       minimizer: [
         new UglifyJsPlugin({
           uglifyOptions: {
+            warnings: false,
             compress: {
-              warnings: false,
               drop_console: true, // console
               drop_debugger: false,
-              pure_funcs: ['console.log']// 移除console
+              // pure_funcs: ['console.log']// 移除console
             }
           }
         })
@@ -75,6 +75,9 @@ module.exports = {
     config.performance = {
       maxEntrypointSize: 800000,
       maxAssetSize: 800000
+    }
+    config.externals = {
+      'echarts': 'echarts'
     }
   },
 
